@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>billett</title>
+    <title>Kino</title>
+    <script src="kinobillett.js"></script>
+
 </head>
 <body>
-
+<h1>Bestilling av Kinobilett</h1>
+<form id="billettForm">
+    <label for="film">Velg film her:</label>
+    <Select id="film"required>
+        <option> The Amazing spider Man(Andrew Garfield)</option>
+        <option> Spider Man(Toby Maguire)</option>
+        <option> Spider Man: Homecoming(Tom Holland)</option>
+    </Select>
+    <br>
+    <br>
+    <label for="antall">Antall</label>
+    <input id="antall" type="number" pattern="[0-9]" required>
+    <br>
+    <br>
+    <label for="fornavn">Fornavn</label>
+    <input id="fornavn" type="text"pattern="[A-Za-z]" required><br>
+    <label for="etternavn">Etternavn</label>
+    <input id="etternavn" type="text" pattern="[A-Za-z]" required><br>
+    <label for="telefon">TelefonNr</label>
+    <input id="telefon" type="text" pattern="[0-9]{8}" required><br>
+    <label for="epost">Epost</label>
+    <input id="epost" type="text" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required><br><br>
+</form>
+<button onclick="kjopBillett()">Kjøp billett</button>
+<h2>Alle Billetter</h2><br>
+<div id="billettRegister"></div>
+<button onclick="slettBilletter()">Slett alle Billetter</button>
 </body>
 </html>
