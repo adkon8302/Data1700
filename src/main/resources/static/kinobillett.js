@@ -7,9 +7,12 @@ function  kjopBillett() {
     const etternavn = document.getElementById("etternavn").value;
     const telefon = document.getElementById("telefon").value;
     const epost = document.getElementById("epost").value;
-    const billett = {
-        film,antall,fornavn,etternavn,telefon,epost
-    };
+    if (validerAntall(antall)) {
+        const billett = {
+            film, antall, fornavn, etternavn, telefon, epost
+
+        };
+    }
     billettRegistering.push(billett);
     visBillett(billettRegistering);
     document.getElementById("billettForm").reset();
@@ -30,8 +33,19 @@ function visBillett(){
         html+="</ol>"
         document.getElementById("billettRegister").innerHTML = html;
         console.log(html)
+
     }
 
+}
+function validerAntall(antall) {
+    const antallInfo = document.getElementById("antallInfo");
+    if (antall < 1) {
+        antallInfo.innerText = "Antall må være minst 1.";
+        return false;
+    } else {
+        antallInfo.innerText = "";
+        return true;
+    }
 }
 function slettBilletter () {
     billettRegistering.length = 0
