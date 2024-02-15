@@ -11,10 +11,12 @@
 <form id="billettForm">
     <label for="film">Velg film her:</label>
     <Select id="film"required>
+        <option disabled selected value="">Velg en film</option>
         <option> The Amazing spider Man(Andrew Garfield)</option>
         <option> Spider Man(Toby Maguire)</option>
         <option> Spider Man: Homecoming(Tom Holland)</option>
     </Select>
+    <span id="filmInfo" class="info-text"></span>
     <br>
     <br>
     <label for="antall">Antall</label>

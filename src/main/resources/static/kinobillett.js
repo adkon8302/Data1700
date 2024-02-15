@@ -1,13 +1,15 @@
 const billettRegistering = [];
 function  kjopBillett() {
 
-    const film = document.getElementById("film").value;
+    const filmSelect = document.getElementById("film");
+    const film = filmSelect.options[filmSelect.selectedIndex].text;
     const antall = document.getElementById("antall").value;
     const fornavn = document.getElementById("fornavn").value;
     const etternavn = document.getElementById("etternavn").value;
     const telefon = document.getElementById("telefon").value;
     const epost = document.getElementById("epost").value;
-    if (validerAntall(antall)&&
+    if (validerFilm(filmSelect)&&
+        validerAntall(antall)&&
         validerforNavn(fornavn) &&
         valideretterNavn(etternavn)) {
         const billett = {
@@ -40,6 +42,16 @@ function visBillett(){
 
     }
 
+}
+function validerFilm(filmSelect) {
+    const filmInfo = document.getElementById("filmInfo");
+    if (filmSelect.selectedIndex === 0) {
+        filmInfo.innerText = "Du må velge en film.";
+        return false;
+    } else {
+        filmInfo.innerText = "";
+        return true;
+    }
 }
 function validerAntall(antall) {
     const antallInfo = document.getElementById("antallInfo");
