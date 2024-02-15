@@ -7,15 +7,19 @@ function  kjopBillett() {
     const etternavn = document.getElementById("etternavn").value;
     const telefon = document.getElementById("telefon").value;
     const epost = document.getElementById("epost").value;
-    if (validerAntall(antall)) {
+    if (validerAntall(antall)&&
+        validerforNavn(fornavn) &&
+        valideretterNavn(etternavn)) {
         const billett = {
             film, antall, fornavn, etternavn, telefon, epost
 
         };
+        billettRegistering.push(billett);
+        visBillett(billettRegistering);
+
+        document.getElementById("billettForm").reset();
     }
-    billettRegistering.push(billett);
-    visBillett(billettRegistering);
-    document.getElementById("billettForm").reset();
+
 }
 function visBillett(){
 
@@ -44,6 +48,28 @@ function validerAntall(antall) {
         return false;
     } else {
         antallInfo.innerText = "";
+        return true;
+    }
+}
+
+function validerforNavn(fornavn) {
+    const fornavnInfo = document.getElementById("fornavnInfo");
+    if (!/^[a-zA-Z]+$/.test(fornavn)) {
+        fornavnInfo.innerText = "Navnet kan bare inneholde bokstaver.";
+        return false;
+    } else {
+        fornavnInfo.innerText = "";
+        return true;
+    }
+}
+
+function valideretterNavn(etternavn) {
+    const etternavnInfo = document.getElementById("etternavnInfo");
+    if (!/^[a-zA-Z]+$/.test(etternavn)) {
+        etternavnInfo.innerText = "Navnet kan bare inneholde bokstaver.";
+        return false;
+    } else {
+        etternavnInfo.innerText = "";
         return true;
     }
 }
