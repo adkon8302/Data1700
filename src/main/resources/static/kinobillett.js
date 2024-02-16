@@ -11,7 +11,9 @@ function  kjopBillett() {
     if (validerFilm(filmSelect)&&
         validerAntall(antall)&&
         validerforNavn(fornavn) &&
-        valideretterNavn(etternavn)) {
+        valideretterNavn(etternavn)&&
+        validerTelefon(telefon)&&
+        validerEpost(epost)) {
         const billett = {
             film, antall, fornavn, etternavn, telefon, epost
 
@@ -82,6 +84,28 @@ function valideretterNavn(etternavn) {
         return false;
     } else {
         etternavnInfo.innerText = "";
+        return true;
+    }
+}
+
+function validerTelefon(telefon) {
+    const telefonInfo = document.getElementById("telefonInfo");
+    if (!/^[0-9]{8}$/.test(telefon)) {
+        telefonInfo.innerText = "Ugyldig telefonnummer. Skal bestå av 8 siffer.";
+        return false;
+    } else {
+        telefonInfo.innerText = "";
+        return true;
+    }
+}
+
+function validerEpost(epost) {
+    const epostInfo = document.getElementById("epostInfo");
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(epost)) {
+        epostInfo.innerText = "Ugyldig e-postadresse.";
+        return false;
+    } else {
+        epostInfo.innerText = "";
         return true;
     }
 }
