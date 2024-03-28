@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 
 public class KinobillettApplication {
-    private final List<Billett> billettRegistering = new ArrayList<>();
+    private final List<Kinobillett> billettRegistering = new ArrayList<>();
 
     public static void main(String[] args) {
         SpringApplication.run(KinobillettApplication.class, args);
@@ -18,13 +18,13 @@ public class KinobillettApplication {
 
     // Endepunkt for å registrere en ny kinobillettbestilling
     @PostMapping("/bestillinger")
-    public void bestillBillett(@RequestBody Billett billett) {
+    public void bestillBillett(@RequestBody Kinobillett billett) {
         billettRegistering.add(billett);
     }
 
     // Endepunkt for å hente alle kinobillettbestillinger
     @GetMapping("/bestillinger")
-    public List<Billett> hentAlleBestillinger() {
+    public List<Kinobillett> hentAlleBestillinger() {
         return billettRegistering;
     }
 
