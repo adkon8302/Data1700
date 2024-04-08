@@ -17,19 +17,19 @@ public class KinobillettApplication {
     }
 
     // Endepunkt for å registrere en ny kinobillettbestilling
-    @PostMapping("/bestillinger")
+    @PostMapping("/register")
     public void bestillBillett(@RequestBody Kinobillett billett) {
         billettRegistering.add(billett);
     }
 
     // Endepunkt for å hente alle kinobillettbestillinger
-    @GetMapping("/bestillinger")
+    @GetMapping("/hentBestillinger")
     public List<Kinobillett> hentAlleBestillinger() {
         return billettRegistering;
     }
 
     // Endepunkt for å slette alle kinobillettbestillinger
-    @DeleteMapping("/bestillinger")
+    @DeleteMapping("/slettBestillinger")
     public void slettAlleBestillinger() {
         billettRegistering.clear();
     }

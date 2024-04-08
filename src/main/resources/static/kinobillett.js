@@ -18,11 +18,13 @@ function  kjopBillett() {
             film, antall, fornavn, etternavn, telefon, epost
 
         };
+
         billettRegistering.push(billett);
         visBillett(billettRegistering);
 
+        }
         document.getElementById("billettForm").reset();
-    }
+
 
 }
 function visBillett(){
