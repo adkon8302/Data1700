@@ -25,7 +25,6 @@ function  kjopBillett() {
         }
         document.getElementById("billettForm").reset();
 
-
 }
 function visBillett(){
 
