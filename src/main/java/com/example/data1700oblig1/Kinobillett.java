@@ -3,6 +3,8 @@ package com.example.data1700oblig1;
 
 public class Kinobillett {
 
+    public Kinobillett(){}
+
     private String film;
     private int antall;
     private String fornavn;
@@ -19,7 +21,7 @@ public class Kinobillett {
        this.epost = epost;
     }
 
-    // Getters og setters
+
     public String getFilm() {
         return film;
     }
@@ -68,7 +70,7 @@ public class Kinobillett {
         this.epost = epost;
     }
 
-    // toString-metode for enkel utskrift
+
     @Override
     public String toString() {
         return "Kinobillett{" +
