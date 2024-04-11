@@ -1,17 +1,8 @@
 package com.example.data1700oblig1;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Entity
-@Table(name = "kinobillet")
+
 public class Kinobillett {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private String film;
     private int antall;
     private String fornavn;
