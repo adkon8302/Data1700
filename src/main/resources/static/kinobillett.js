@@ -24,7 +24,7 @@ function  kjopBillett() {
 
         }
         document.getElementById("billettForm").reset();
-    $.post("http://localhost:8080/register",billettRegistering, function (data){})
+    $.post("http://localhost:8080/register",billett, function (data){})
 }
 function visBillett(){
 
