@@ -11,9 +11,11 @@ public class Kinobillett {
     private String etternavn;
     private String telefon;
     private String epost;
+    private Long id;
 
     // Konstruktør
-    public Kinobillett(int antall, String fornavn, String etternavn, String telefon, String epost) {
+    public Kinobillett(Long id, int antall, String fornavn, String etternavn, String telefon, String epost) {
+       this.id = id;
        this.antall = antall;
        this.fornavn = fornavn;
        this.etternavn = etternavn;
@@ -21,6 +23,13 @@ public class Kinobillett {
        this.epost = epost;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getFilm() {
         return film;
@@ -74,6 +83,7 @@ public class Kinobillett {
     @Override
     public String toString() {
         return "Kinobillett{" +
+                "id='" + id + '\'' +
                 "film='" + film + '\'' +
                 ", antall=" + antall +
                 ", fornavn='" + fornavn + '\'' +
