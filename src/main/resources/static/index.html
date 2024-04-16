@@ -5,13 +5,12 @@
     <title>Kino</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="kinobillett.js"></script>
-
 </head>
 <body>
 <h1>Bestilling av Kinobilett</h1>
 <form id="billettForm">
     <label for="film">Velg film her:</label>
-    <Select id="film"required>
+    <Select id="film" required>
         <option disabled selected value="">Velg en film</option>
         <option> The Amazing spider Man(Andrew Garfield)</option>
         <option> Spider Man(Toby Maguire)</option>
@@ -46,7 +45,7 @@
     <br><br>
 </form>
 <button onclick="kjopBillett()">Kjøp billett</button>
-<button onclick="lagreBillettFraInput()">Kjøp billett</button>
+<button onclick="lagreBillettFraInput()">Legg til billett i database</button>
 <h2>Alle Billetter</h2><br>
 <div id="billettRegister"></div>
 <button onclick="slettBilletter()">Slett alle Billetter</button>

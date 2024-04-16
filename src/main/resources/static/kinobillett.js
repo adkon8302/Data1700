@@ -24,30 +24,30 @@ function  kjopBillett() {
 
         }
         document.getElementById("billettForm").reset();
-    function lagreBillettFraInput(){
-        kinobillett = {
-            "film": document.getElementById("film").value,
-            "antall": document.getElementById("antall").value,
-            "fornavn": document.getElementById("fornavn").value,
-            "etternavn": document.getElementById("etternavn").value,
-            "telefon": document.getElementById("telefon").value,
-            "epost": document.getElementById("epost").value
-        }
-        console.log(kinobillett)
 
-
-        $.ajax({
-            url: "http://localhost:8080/lagre",
-            type: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(kinobillett),
-        })
-        kjopBillett();
+}
+function lagreBillettFraInput(){
+    kinobillett = {
+        "film": document.getElementById("film").value,
+        "antall": document.getElementById("antall").value,
+        "fornavn": document.getElementById("fornavn").value,
+        "etternavn": document.getElementById("etternavn").value,
+        "telefon": document.getElementById("telefon").value,
+        "epost": document.getElementById("epost").value
     }
+    console.log(kinobillett)
+
+    $.ajax({
+        url: "http://localhost:8080/registrer",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(kinobillett),
+    })
+    kjopBillett();
 }
 function visBillett(){
 
-    console.log("ajunge aici")
+
     let html = "<ol>";
     console.log(billettRegistering)
     for(let i in billettRegistering){
