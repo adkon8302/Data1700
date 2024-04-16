@@ -14,6 +14,13 @@ public class Kinobillett {
     private Long id;
 
     // Konstruktør
+    public Kinobillett(int antall, String fornavn, String etternavn, String telefon, String epost) {
+        this.antall = antall;
+        this.fornavn = fornavn;
+        this.etternavn = etternavn;
+        this.telefon = telefon;
+        this.epost = epost;
+    }
     public Kinobillett(Long id, int antall, String fornavn, String etternavn, String telefon, String epost) {
        this.id = id;
        this.antall = antall;
