@@ -37,8 +37,7 @@ public class KinobillettRepository {
                 billett.getEtternavn(), billett.getTelefon(), billett.getEpost());
     }
 
-    public void deleteById(Long billettId) {
-    }
+
     public List<Kinobillett> hentBilletter() {
         String sql = "SELECT * FROM Kinobillett ORDER BY etternavn";
         return db.query(sql, new KinobillettRowMapper());
