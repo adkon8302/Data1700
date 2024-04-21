@@ -24,7 +24,7 @@ public class KinobillettApplication {
     public void lagreBillettFraInput(@RequestBody Kinobillett kinobillett) {
         billettRegistering.add(kinobillett);@
     }*/
-    @RequestMapping(value = "/registrer", method = RequestMethod.POST)
+    @RequestMapping(value = "/lagre", method = RequestMethod.POST)
     public void lagreBillett (@RequestBody Kinobillett innBillett){rep.lagreBillett(innBillett);}
 
     // Endepunkt for å hente alle kinobillettbestillinger

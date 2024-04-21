@@ -38,7 +38,7 @@ function lagreBillettFraInput(){
     console.log(kinobillett)
 
     $.ajax({
-        url: "http://localhost:8080/registrer",
+        url: "http://localhost:8080/lagre",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(kinobillett),
