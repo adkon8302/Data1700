@@ -15,6 +15,8 @@ public class KinobillettRepository {
 
     @Autowired
     private JdbcTemplate db;
+
+
     class KinobillettRowMapper implements RowMapper< Kinobillett > {
         @Override
         public Kinobillett mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -28,7 +30,6 @@ public class KinobillettRepository {
             kinobillett.setEpost(rs.getString("epost"));
             return kinobillett;
         }
-
     }
     public void lagreBillett (Kinobillett billett){
         String sql = "INSERT INTO Kinobillett (film,antall,fornavn,etternavn,telefon,epost) VALUES (?,?,?,?,?,?)";
@@ -36,6 +37,8 @@ public class KinobillettRepository {
                 billett.getEtternavn(), billett.getTelefon(), billett.getEpost());
     }
 
+    public void deleteById(Long billettId) {
+    }
     public List<Kinobillett> hentBilletter() {
         String sql = "SELECT * FROM Kinobillett ORDER BY etternavn";
         return db.query(sql, new KinobillettRowMapper());
