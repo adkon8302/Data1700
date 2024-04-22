@@ -13,6 +13,7 @@ import java.util.List;
 public class KinobillettApplication {
     @Autowired
     KinobillettRepository rep;
+
     //private final List<Kinobillett> billettRegistering = new ArrayList<>();
 
 
@@ -28,7 +29,10 @@ public class KinobillettApplication {
     public List<Kinobillett> hentAlleKinobilletter() {
         return  rep.hentBilletter();
     }
-
+    @PostMapping("/oppdater")
+    public void updateKinobillett(@RequestBody Kinobillett kinobillett) {
+        rep.updateBillett(kinobillett);
+    }
     @DeleteMapping("/slett")
     public void slettBilletter(){rep.slettBilletter();}
     // Endepunkt for å slette alle kinobillettbestillinger

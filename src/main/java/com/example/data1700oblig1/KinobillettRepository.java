@@ -36,7 +36,12 @@ public class KinobillettRepository {
         db.update(sql, billett.getFilm(), billett.getAntall(), billett.getFornavn(),
                 billett.getEtternavn(), billett.getTelefon(), billett.getEpost());
     }
-
+    public int updateBillett(Kinobillett billett) {
+        String sql = "UPDATE Kinobillett SET film = ?, antall = ?, fornavn = ?, etternavn = ?, telefon = ?, epost = ? WHERE id = ?";
+        Object[] params = {billett.getFilm(), billett.getAntall(), billett.getFornavn(),
+                billett.getEtternavn(), billett.getTelefon(), billett.getEpost(), billett.getId()};
+        return db.update(sql, params);
+    }
 
     public List<Kinobillett> hentBilletter() {
         String sql = "SELECT * FROM Kinobillett ORDER BY etternavn";
