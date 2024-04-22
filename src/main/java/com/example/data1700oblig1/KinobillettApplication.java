@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @SpringBootApplication
 @RestController
@@ -22,8 +24,10 @@ public class KinobillettApplication {
     }*/
     @RequestMapping(value = "/lagre", method = RequestMethod.POST)
     public void lagreBillett (@RequestBody Kinobillett innBillett){rep.lagreBillett(innBillett);}
-    @GetMapping("/hent")
-    public void hentBilletter(){rep.hentBilletter();}
+    @GetMapping("/hentKinobillett")
+    public List<Kinobillett> hentAlleKinobilletter() {
+        return  rep.hentBilletter();
+    }
 
     @DeleteMapping("/slett")
     public void slettBilletter(){rep.slettBilletter();}
