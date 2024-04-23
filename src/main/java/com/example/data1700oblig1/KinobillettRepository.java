@@ -36,11 +36,10 @@ public class KinobillettRepository {
         db.update(sql, billett.getFilm(), billett.getAntall(), billett.getFornavn(),
                 billett.getEtternavn(), billett.getTelefon(), billett.getEpost());
     }
-    public int updateBillett(Kinobillett billett) {
+    public int oppdaterBillett(Kinobillett billett) {
         String sql = "UPDATE Kinobillett SET film = ?, antall = ?, fornavn = ?, etternavn = ?, telefon = ?, epost = ? WHERE id = ?";
-        Object[] params = {billett.getFilm(), billett.getAntall(), billett.getFornavn(),
-                billett.getEtternavn(), billett.getTelefon(), billett.getEpost(), billett.getId()};
-        return db.update(sql, params);
+        return db.update(sql, billett.getFilm(), billett.getAntall(), billett.getFornavn(),
+                billett.getEtternavn(), billett.getTelefon(), billett.getEpost(), billett.getId());
     }
 
     public List<Kinobillett> hentBilletter() {
@@ -48,7 +47,7 @@ public class KinobillettRepository {
         return db.query(sql, new KinobillettRowMapper());
     }
     public int slettBillett(Long id){
-        String sql = "delete from student where id = ?";
+        String sql = "delete from Kinobillett where id = ?";
         return db.update(sql,new Object[]{
                 id
         });

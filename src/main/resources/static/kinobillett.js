@@ -140,12 +140,24 @@ function hentAlleBilletterFraDB (){
             dynamicHTML += "<li>" + kinobillett.film +" "+ kinobillett.antall+" "
                 + kinobillett.fornavn +" "+ kinobillett.etternavn +" "
                 + kinobillett.telefon +" "+ kinobillett.epost +
-                //"<button onclick='oppdaterBillett(" + kinobillett.id +")'>Endre</button>"+
+                "<button onclick='oppdaterBillett(" + kinobillett.id +")'>Endre</button>"+
                 "<button onclick='slettBillett(" + kinobillett.id +")'>Slett</button>"+ "</li>"
         })
         dynamicHTML += "</ul>"
         document.getElementById("billetter").innerHTML = dynamicHTML;
     })
+}
+function oppdaterBillett(id){
+    document.getElementById("idBillett").innerHTML = id;
+    $.post("http://localhost:8080/hentKinobillett?id=   "+id, function (data){
+        document.getElementById("filmEndring").value = data.film;
+        document.getElementById("antallEndring").value = data.antall;
+        document.getElementById("fornavnEndring").value = data.fornavn;
+        document.getElementById("etternavnEndring").value = data.etternavn;
+        document.getElementById("telefonEndring").value = data.telefon;
+        document.getElementById("epostEndring").value = data.epost;
+    })
+    console.log(id);
 }
 function slettBillett(id){
     $.ajax({
@@ -155,4 +167,18 @@ function slettBillett(id){
             console.log('Billett slettet:', response);
         }
     });
+}
+function oppdaterBillettIDB(){
+    kinobillett = {
+        "id": document.getElementById("idBillett").innerHTML,
+        "film": document.getElementById("filmEndring").value,
+        "antall": document.getElementById("antallEndring").value,
+        "fornavn": document.getElementById("fornavnEndring").value,
+        "etternavn": document.getElementById("etternavnEndring").value,
+        "telefon": document.getElementById("telefonEndring").value,
+        "epost": document.getElementById("epostEndring").value,
+    }
+    console.log(document.getElementById("idBillett").value);
+    console.log(kinobillett)
+    $.post("http://localhost:8080/oppdaterBillett", kinobillett, function (data){})
 }

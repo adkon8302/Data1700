@@ -49,7 +49,30 @@
 <div id="billettRegister"></div>
 <button onclick="slettBillett()">Slett alle Billetter</button>
 <br><br>
+<h2> Oppdater valgt billett </h2>
+<p>ID:</p><p id="idBillett"></p>
+<label>Film</label>
+<select id="filmEndring">
+    <option> The Amazing spider Man(Andrew Garfield)</option>
+    <option> Spider Man(Toby Maguire)</option>
+    <option> Spider Man: Homecoming(Tom Holland)</option>
+</select><br>
+<label>Antall</label>
+<input type ="number" id="antallEndring"><br>
+<label>Fornavn</label>
+<input type ="text" id="fornavnEndring"><br>
+<label>Etternavn</label>
+<input type ="text" id="etternavnEndring"><br>
+<label>telefon</label>
+<input type ="number" id="telefonEndring"><br>
+<label>Epost</label>
+<input type ="text" id="epostEndring"><br>
+<br>
+<button onclick="oppdaterBillettIDB()">Oppdater</button>
+</div>
 <button onclick="hentAlleBilletterFraDB()">Vis alle Billetter</button>
+<br>
+<h2>Alle Billetter fra Databasen</h2>
 <br>
 <p id="billetter"></p>
 </body>

@@ -29,11 +29,11 @@ public class KinobillettApplication {
     public List<Kinobillett> hentAlleKinobilletter() {
         return  rep.hentBilletter();
     }
-    @PostMapping("/oppdater")
-    public void updateKinobillett(@RequestBody Kinobillett kinobillett) {
-        rep.updateBillett(kinobillett);
+    @PostMapping("/oppdaterBillett")
+    public void oppdaterBillettIDB(@RequestBody Kinobillett kinobillett) {
+        rep.oppdaterBillett(kinobillett);
     }
-    @DeleteMapping("/slett")
+    @DeleteMapping("/slettBillett")
     public String slettBillett(@RequestParam Long id) {
          rep.slettBillett(id);
         return "Slettet";
