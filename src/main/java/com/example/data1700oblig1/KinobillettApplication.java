@@ -34,7 +34,10 @@ public class KinobillettApplication {
         rep.updateBillett(kinobillett);
     }
     @DeleteMapping("/slett")
-    public void slettBilletter(){rep.slettBilletter();}
+    public String slettBillett(@RequestParam Long id) {
+         rep.slettBillett(id);
+        return "Slettet";
+    }
     // Endepunkt for å slette alle kinobillettbestillinger
     /*@DeleteMapping("/slettBestillinger")
     public void slettAlleBestillinger() {

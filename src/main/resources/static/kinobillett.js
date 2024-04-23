@@ -130,7 +130,29 @@ function validerEpost(epost) {
         return true;
     }
 }
-function slettBilletter () {
-    billettRegistering.length = 0
-    document.getElementById("billettRegister").innerHTML = "";
+function hentAlleBilletterFraDB (){
+    $.get("http://localhost:8080/hentKinobillett", function (data) {
+        console.log(data);
+        let dynamicHTML = "<ul>";
+        //   for (let i = 0; i<data.length; i++)
+        data.forEach(function (kinobillett){
+            //       const kinobillett = data[i];
+            dynamicHTML += "<li>" + kinobillett.film +" "+ kinobillett.antall+" "
+                + kinobillett.fornavn +" "+ kinobillett.etternavn +" "
+                + kinobillett.telefon +" "+ kinobillett.epost +
+                //"<button onclick='oppdaterBillett(" + kinobillett.id +")'>Endre</button>"+
+                "<button onclick='slettBillett(" + kinobillett.id +")'>Slett</button>"+ "</li>"
+        })
+        dynamicHTML += "</ul>"
+        document.getElementById("billetter").innerHTML = dynamicHTML;
+    })
+}
+function slettBillett(id){
+    $.ajax({
+        url: 'http://localhost:8080/slettBillett?id='+id,
+        type: 'DELETE',
+        success: function(response) {
+            console.log('Billett slettet:', response);
+        }
+    });
 }

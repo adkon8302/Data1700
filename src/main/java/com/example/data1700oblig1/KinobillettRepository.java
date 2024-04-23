@@ -47,9 +47,11 @@ public class KinobillettRepository {
         String sql = "SELECT * FROM Kinobillett ORDER BY etternavn";
         return db.query(sql, new KinobillettRowMapper());
     }
-    public void slettBilletter(){
-        String sql = "DELETE FROM Kinobillett";
-        db.update(sql);
+    public int slettBillett(Long id){
+        String sql = "delete from student where id = ?";
+        return db.update(sql,new Object[]{
+                id
+        });
     }
 
 }
