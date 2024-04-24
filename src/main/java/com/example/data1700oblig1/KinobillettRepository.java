@@ -41,7 +41,10 @@ public class KinobillettRepository {
         return db.update(sql, billett.getFilm(), billett.getAntall(), billett.getFornavn(),
                 billett.getEtternavn(), billett.getTelefon(), billett.getEpost(), billett.getId());
     }
-
+    public Kinobillett hentFraId(long id){
+        return db.queryForObject("SELECT * from Kinobillett where id = ?",
+                new KinobillettRowMapper(),id);
+    }
     public List<Kinobillett> hentBilletter() {
         String sql = "SELECT * FROM Kinobillett ORDER BY etternavn";
         return db.query(sql, new KinobillettRowMapper());

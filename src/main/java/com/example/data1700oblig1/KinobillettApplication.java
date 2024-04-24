@@ -29,6 +29,8 @@ public class KinobillettApplication {
     public List<Kinobillett> hentAlleKinobilletter() {
         return  rep.hentBilletter();
     }
+    @PostMapping("/hentKinobillettFraDb")
+    public Kinobillett hentKinobillettFraDb(@RequestParam Long id){return rep.hentFraId(id);}
     @PostMapping("/oppdaterBillett")
     public void oppdaterBillettIDB(@RequestBody Kinobillett kinobillett) {
         rep.oppdaterBillett(kinobillett);
