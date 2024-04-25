@@ -182,7 +182,7 @@ function oppdaterBillettIDB(){
     console.log(kinobillett)
     $.ajax({
         url: 'http://localhost:8080/oppdaterBillett',
-        type: 'POST', // or 'PATCH' depending on your choice
+        type: 'POST',
         data: JSON.stringify(kinobillett),
         contentType: 'application/json',
         success: function(response) {
